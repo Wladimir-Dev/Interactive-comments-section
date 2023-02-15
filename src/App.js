@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { TimeLine } from './Components/TimeLine';
+import { useComments } from './hook/useComments';
+
 
 function App() {
+
+  const { currentUser, comments } = useComments();
+  const data = { currentUser, comments }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <main>
+        <TimeLine data={data} />
+      </main>
     </div>
   );
 }
