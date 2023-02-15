@@ -1,0 +1,20 @@
+.repliesContainer {
+    display: flex;
+    padding-left: 10px;
+    width: 100%;
+    
+}
+
+.repliesContainer__line {
+    min-width: 1px;
+    border: 1px solid var(--Light-gray);
+    margin-right: 8px;
+}
+.repliesContainer__comments{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    min-width: 90%;
+    flex-grow: 1;
+
+}

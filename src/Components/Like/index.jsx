@@ -10,7 +10,7 @@ export const Like = ({ score }) => {
     return (
         <div className={styles.like}>
             <button>+</button>
-            <strong>{score}</strong>
+            <p>{score}</p>
             <button>-</button>
         </div>
     )

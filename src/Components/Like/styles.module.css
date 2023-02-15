@@ -1,0 +1,25 @@
+.like{
+    background-color: var( --Very-light-gray);
+    width: 100px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-radius: 8px;
+
+}
+
+.like button{
+    background-color: transparent;
+    border-style: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--Light-grayish-blue)
+}
+
+.like p{
+    color: var(--Moderate-blue);
+    font-size: 17px;
+    font-weight: 500;
+}

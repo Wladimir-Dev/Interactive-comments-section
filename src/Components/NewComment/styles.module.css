@@ -1,0 +1,37 @@
+.newComment {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+}
+
+.newComment textarea {
+    height: 110px;
+    border-radius: 8px;
+    outline-color: var(--Light-grayish-blue);
+    padding: 15px;
+    border: 2px solid var(--Light-gray);
+    resize: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer>img {
+    border-radius: 50%;
+    width: 35px;
+}
+
+.footer>button {
+    background-color: var(--Moderate-blue);
+    border-style: none;
+    color: var(--White);
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Rubik', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: 80px;
+}

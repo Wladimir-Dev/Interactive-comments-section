@@ -22,7 +22,10 @@ export const ListOfComments = ({ comments }) => {
                     />
                     {comment.replies?.length > 0 &&
                         <div className={styles.repliesContainer}>
-                            <ListOfComments comments={comment.replies} />
+                            <div className={styles.repliesContainer__line}></div>
+                            <div className={styles.repliesContainer__comments}>
+                                <ListOfComments comments={comment.replies} />
+                            </div>
                         </div>
                     }
                 </>

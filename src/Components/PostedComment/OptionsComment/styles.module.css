@@ -1,0 +1,28 @@
+.optionsContainer{
+    display: flex;
+    column-gap: 5px;
+    margin-left: 4px;
+
+}
+
+
+.option__button {
+    background-color: transparent;
+    border-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
+
+}
+.option__button_container{
+    display: flex;
+    
+}
+.button__reply,
+.button__edit{
+    color: var(--Moderate-blue);
+
+}
+.button__delete{
+    color: var(--Soft-Red);
+}

@@ -1,0 +1,52 @@
+.header {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.header__left img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.header__left :nth-child(2) {
+    color: var(--Dark-blue);
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.tagUser {
+    background-color: var(--Moderate-blue);
+    width: 35px;
+    height: 20px;
+    text-align: center;
+    color: var(--White);
+    font-size: 14px;
+    border-radius: 2px;
+    padding-top: 1px;
+    margin-right: 2px;
+}
+
+.header__right {
+    display: none;
+}
+
+.body {
+    line-height: 22px;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
