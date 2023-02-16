@@ -5,7 +5,7 @@ import { CommentContext } from '../../context/CommentContext';
 import { OptionsComment } from './OptionsComment';
 import { NewComment } from '../NewComment';
 
-export const PostedComment = ({ id, content, createdAt, score, profilePic, userName, replyingTo }) => {
+export const PostedComment = ({ topCommentId, id, content, createdAt, score, profilePic, userName, replyingTo = null }) => {
 
 
     const { currentUser } = useContext(CommentContext);
@@ -37,7 +37,11 @@ export const PostedComment = ({ id, content, createdAt, score, profilePic, userN
 
 
                 <div className={styles.body}>
-                    <p>{content}</p>
+                    <p>{replyingTo &&
+                        <span>{`@${replyingTo} `}</span>
+                    }
+                        {content}
+                    </p>
                 </div>
 
 
@@ -54,6 +58,7 @@ export const PostedComment = ({ id, content, createdAt, score, profilePic, userN
 
             {reply &&
                 <NewComment
+                    topCommentId={topCommentId}
                     replyingTo={userName}
                     idComment={id}
                     setReply={setReply}

@@ -10,7 +10,8 @@ export const TimeLine = ({ data }) => {
                 hasComments
                     ? <ListOfComments 
                     comments={data.comments}
-                    data={data} />
+                    data={data}
+                    />
                     : <p>ho hay comentarios</p>
             }
         </>

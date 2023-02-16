@@ -3,7 +3,7 @@ import { PostedComment } from '../PostedComment'
 import styles from './styles.module.css'
 
 
-export const ListOfComments = ({ comments }) => {
+export const ListOfComments = ({ topCommentId = null, comments }) => {
 
 
     return (
@@ -12,6 +12,7 @@ export const ListOfComments = ({ comments }) => {
                 return <>
                     <PostedComment
                         key={comment.id}
+                        topCommentId={topCommentId}
                         id={comment.id}
                         content={comment.content}
                         createdAt={comment.createdAt}
@@ -24,7 +25,7 @@ export const ListOfComments = ({ comments }) => {
                         <div className={styles.repliesContainer}>
                             <div className={styles.repliesContainer__line}></div>
                             <div className={styles.repliesContainer__comments}>
-                                <ListOfComments comments={comment.replies} />
+                                <ListOfComments topCommentId={comment.id} comments={comment.replies} />
                             </div>
                         </div>
                     }
