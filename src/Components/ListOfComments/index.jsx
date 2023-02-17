@@ -17,9 +17,10 @@ export const ListOfComments = ({ topCommentId = null, comments }) => {
                         content={comment.content}
                         createdAt={comment.createdAt}
                         score={comment.score}
-                        profilePic={comment.user.image.png}
-                        userName={comment.user.username}
+                        profilePic={comment.user?.image.png}
+                        userName={comment.user?.username}
                         replyingTo={comment.replyingTo}
+                        voted={comment.voted}
                     />
                     {comment.replies?.length > 0 &&
                         <div className={styles.repliesContainer}>

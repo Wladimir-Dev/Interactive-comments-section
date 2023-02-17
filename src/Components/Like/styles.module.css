@@ -1,7 +1,7 @@
-.like{
-    background-color: var( --Very-light-gray);
+.like {
+    background-color: var(--Very-light-gray);
     width: 100px;
-    height:40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,7 +10,7 @@
 
 }
 
-.like button{
+.like button {
     background-color: transparent;
     border-style: none;
     font-size: 18px;
@@ -18,7 +18,8 @@
     color: var(--Light-grayish-blue)
 }
 
-.like p{
+
+.like p {
     color: var(--Moderate-blue);
     font-size: 17px;
     font-weight: 500;

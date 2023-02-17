@@ -1,20 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Like } from '../Like'
 import styles from './styles.module.css'
-import { CommentContext } from '../../context/CommentContext';
 import { OptionsComment } from './OptionsComment';
 import { NewComment } from '../NewComment';
+import { useComments } from '../../hook/useComments';
+import { Edit } from '../Edit';
+import { calculateDate } from '../../utilities/calculateDate';
+import { Delete } from '../Delete';
 
-export const PostedComment = ({ topCommentId, id, content, createdAt, score, profilePic, userName, replyingTo = null }) => {
+export const PostedComment = ({ topCommentId, id, content, createdAt, score, profilePic, userName, replyingTo = null, voted = false }) => {
 
 
-    const { currentUser } = useContext(CommentContext);
+    const { currentUser } = useComments();
     const [reply, setReply] = useState(false);
+    const [edit, setEdit] = useState(false);
+    const [destroy, setDestroy] = useState(false);
 
     const isCurrentUser = userName === currentUser.username;
-
-
-
 
 
     return (
@@ -28,7 +30,7 @@ export const PostedComment = ({ topCommentId, id, content, createdAt, score, pro
                         {isCurrentUser &&
                             <p className={styles.tagUser}>you</p>
                         }
-                        <p>{createdAt}</p>
+                        <p>{calculateDate(createdAt)}</p>
                     </div>
                     <div className={styles.header__right}>
                         <button>reply</button>
@@ -37,19 +39,38 @@ export const PostedComment = ({ topCommentId, id, content, createdAt, score, pro
 
 
                 <div className={styles.body}>
-                    <p>{replyingTo &&
-                        <span>{`@${replyingTo} `}</span>
+                    {
+                        edit
+                            ?
+                            <Edit
+                                commentId={id}
+                                topCommentId={topCommentId}
+                                content={content}
+                                setEdit={setEdit}
+                            />
+                            :
+                            <p>
+                                {replyingTo &&
+                                    <span>{`@${replyingTo} `}</span>
+                                }
+                                {content}
+                            </p>
                     }
-                        {content}
-                    </p>
                 </div>
 
 
                 <div className={styles.footer}>
-                    <Like score={score} />
+                    <Like
+                        score={score}
+                        voted={voted}
+                        idComment={id}
+                        topCommentId={topCommentId}
+                    />
                     <OptionsComment
                         isCurrentUser={isCurrentUser}
                         setReply={setReply}
+                        setEdit={setEdit}
+                        setDestroy={setDestroy}
                     />
                 </div>
 
@@ -62,6 +83,14 @@ export const PostedComment = ({ topCommentId, id, content, createdAt, score, pro
                     replyingTo={userName}
                     idComment={id}
                     setReply={setReply}
+                />
+            }
+
+            {destroy &&
+                < Delete
+                    setDestroy={setDestroy}
+                    idComment={id}
+                    topCommentId={topCommentId}
                 />
             }
         </>

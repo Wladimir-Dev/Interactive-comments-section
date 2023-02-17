@@ -2,7 +2,7 @@ import React from 'react'
 import { FaReply, FaTrash, FaPencilAlt } from 'react-icons/fa';
 import styles from './styles.module.css'
 
-export const OptionsComment = ({ isCurrentUser, setReply }) => {
+export const OptionsComment = ({ isCurrentUser, setReply, setEdit, setDestroy }) => {
 
   return (
     <>
@@ -11,12 +11,14 @@ export const OptionsComment = ({ isCurrentUser, setReply }) => {
           ?
           <div className={styles.optionsContainer}>
             <button
-              className={`${styles.option__button} ${styles.option__button_container} ${styles.button__delete}`}>
+              className={`${styles.option__button} ${styles.option__button_container} ${styles.button__delete}`}
+              onClick={() => setDestroy(prev => !prev)}>
               <FaTrash />Delete
             </button>
 
             <button
-              className={`${styles.option__button} ${styles.option__button_container} ${styles.button__edit}`}>
+              className={`${styles.option__button} ${styles.option__button_container} ${styles.button__edit}`}
+              onClick={() => setEdit(prev => !prev)}>
               <FaPencilAlt />Edit
             </button>
           </div>

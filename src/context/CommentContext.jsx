@@ -1,12 +1,12 @@
 import React, { createContext, useState } from 'react'
-import { useComments } from '../hook/useComments';
+import { useData } from '../hook/useData';
 
 export const CommentContext = createContext();
 
 
 export const CommentProvider = ({ children }) => {
 
-    const { currentUser, comments,setComments } = useComments();
+    const { currentUser, comments,setComments } = useData();
 
 
 

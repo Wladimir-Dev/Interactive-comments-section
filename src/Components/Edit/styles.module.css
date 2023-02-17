@@ -1,0 +1,16 @@
+.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.edit button {
+    margin-top: 5px;
+    align-self: end;
+}
