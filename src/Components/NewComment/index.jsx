@@ -1,5 +1,6 @@
 import React from 'react'
 import { useComments } from '../../hook/useComments'
+import { generateRandomId } from '../../utilities/generateRandomId'
 import { prepareContent } from '../../utilities/prepareContent'
 import styles from './styles.module.css'
 
@@ -11,7 +12,7 @@ export const NewComment = ({ topCommentId, replyingTo = null, setReply, idCommen
     const isReply = replyingTo != null;
 
     const obj = {
-        id: 10,
+        id: generateRandomId(),
         createdAt: new Date().toString(),
         score: 0,
         user: {
