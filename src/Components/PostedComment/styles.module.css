@@ -1,3 +1,14 @@
+
+
+.postedComment >div:nth-child(1) {
+    display: none;
+}
+.postedComment >div:nth-child(2) {
+
+    width: 100%;
+}
+
+
 .header {
     display: flex;
     justify-content: start;
@@ -43,11 +54,14 @@
     line-height: 22px;
     font-size: 15px;
     margin-bottom: 10px;
+    width: 100%;
 }
-.body span{
+
+.body span {
     color: var(--Moderate-blue);
     font-weight: 600;
 }
+
 .footer {
     display: flex;
     justify-content: space-between;

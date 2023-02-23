@@ -1,6 +1,6 @@
 .repliesContainer {
     display: flex;
-    padding-left: 10px;
+    padding-left: 15px;
     width: 100%;
     
 }
@@ -8,7 +8,7 @@
 .repliesContainer__line {
     min-width: 1px;
     border: 1px solid var(--Light-gray);
-    margin-right: 8px;
+    margin-right: 12px;
 }
 .repliesContainer__comments{
     display: flex;

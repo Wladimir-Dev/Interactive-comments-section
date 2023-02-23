@@ -1,0 +1,27 @@
+@media only screen and (min-width:768px) {
+   
+    .postedComment{
+        display: flex;
+        column-gap: 20px;
+    }
+    .postedComment >div:nth-child(1) {
+        display: flex;
+    }
+
+    .header {
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    
+
+
+   .header__right{
+    display: block;
+   }
+
+
+    .footer{
+        display: none;
+    }
+}

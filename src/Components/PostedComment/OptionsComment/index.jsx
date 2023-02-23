@@ -1,6 +1,10 @@
 import React from 'react'
 import { FaReply, FaTrash, FaPencilAlt } from 'react-icons/fa';
+
+
 import styles from './styles.module.css'
+import desktop from './desktop.module.css'
+
 
 export const OptionsComment = ({ isCurrentUser, setReply, setEdit, setDestroy }) => {
 
@@ -9,7 +13,7 @@ export const OptionsComment = ({ isCurrentUser, setReply, setEdit, setDestroy })
       {
         isCurrentUser
           ?
-          <div className={styles.optionsContainer}>
+          <div className={`${styles.optionsContainer} ${desktop.optionsContainer}`}>
             <button
               className={`${styles.option__button} ${styles.option__button_container} ${styles.button__delete}`}
               onClick={() => setDestroy(prev => !prev)}>

@@ -16,9 +16,12 @@ export const Edit = ({ commentId, topCommentId, content, setEdit }) => {
         <div className={`commentContainer ${styles.edit}`} >
             <form onSubmit={handleSubmit}>
                 <textarea
+                    required
                     name="texto" id="" cols="30" rows="10"
+                    onInvalid={e => e.target.setCustomValidity("This field can not be empty")}
+                    onInput={e => e.target.setCustomValidity("")}
                     defaultValue={content}
-                    placeholder="anade comentario">
+                    placeholder="Add New Comment">
                 </textarea>
                 <button className='button__submit'>update</button>
             </form>

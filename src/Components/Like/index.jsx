@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { useComments } from '../../hook/useComments';
 import styles from './styles.module.css'
-
+import desktop from './desktop.module.css'
 
 
 export const Like = ({ idComment: commentId, topCommentId, score, voted }) => {
@@ -11,22 +10,15 @@ export const Like = ({ idComment: commentId, topCommentId, score, voted }) => {
 
     const handleLike = () => {
 
+        !voted
+            ? updateComments({ topCommentId, commentId, action: "sumar" })
+            : updateComments({ topCommentId, commentId, action: "restar" })
 
-        if (!voted) {
-
-            updateComments({ topCommentId, commentId, action: "sumar" })
-        }
-        else {
-            updateComments({ topCommentId, commentId, action: "restar" })
-        }
-
-
-        console.log("render like")
     }
 
 
     return (
-        <div className={styles.like}>
+        <div className={`${styles.like} ${desktop.like}`}>
             <button onClick={handleLike} disabled={voted}>+</button>
             <p>{score}</p>
             <button onClick={handleLike} disabled={!voted}>-</button>

@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 export const NewComment = ({ topCommentId, replyingTo = null, setReply, idComment }) => {
 
     const { currentUser, comments, setComments } = useComments()
-    const aux = [...comments];
+    const clone = structuredClone(comments);
     const isReply = replyingTo != null;
 
     const obj = {
@@ -28,18 +28,18 @@ export const NewComment = ({ topCommentId, replyingTo = null, setReply, idCommen
         obj.replies = [];
         obj.content = e.target.texto.value;
         e.target.texto.value = "";
-        aux.push(obj);
+        clone.push(obj);
     }
 
     const addReply = (e) => {
 
         const postedCommentId = topCommentId || idComment;
-        const index = aux.findIndex(comment => comment.id === postedCommentId);
+        const index = clone.findIndex(comment => comment.id === postedCommentId);
 
         obj.content = prepareContent(e.target.texto.value)
         obj.replyingTo = replyingTo;
 
-        aux[index].replies.push(obj);
+        clone[index].replies.push(obj);
         setReply(prev => !prev);
     }
 
@@ -48,6 +48,7 @@ export const NewComment = ({ topCommentId, replyingTo = null, setReply, idCommen
 
         e.preventDefault();
 
+
         if (isReply) {
             addReply(e);
         }
@@ -55,15 +56,19 @@ export const NewComment = ({ topCommentId, replyingTo = null, setReply, idCommen
         else {
             addNewComment(e);
         }
-        setComments(aux);
+        setComments(clone);
     }
+   
 
     return (
         <article className={`commentContainer ${styles.newComment}`}>
             <form onSubmit={handleSubmit} className={styles.newComment_formulario}>
                 <textarea
+                    required
+                    onInvalid={e=> e.target.setCustomValidity("This field can not be empty")}
+                    onInput={e=> e.target.setCustomValidity("")}
                     name="texto" id="" cols="30" rows="10"
-                    placeholder='anade comentario'
+                    placeholder='Add New Comment'
                     defaultValue={replyingTo ? `@${replyingTo}, ` : ""}>
 
                 </textarea>

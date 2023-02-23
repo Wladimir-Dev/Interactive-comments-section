@@ -26,7 +26,7 @@ export const ListOfComments = ({ topCommentId = null, comments }) => {
                         <div className={styles.repliesContainer}>
                             <div className={styles.repliesContainer__line}></div>
                             <div className={styles.repliesContainer__comments}>
-                                <ListOfComments topCommentId={comment.id} comments={comment.replies} />
+                                <ListOfComments key={comment.id} topCommentId={comment.id} comments={comment.replies} />
                             </div>
                         </div>
                     }

@@ -9,10 +9,15 @@ export const Delete = ({ commentId, topCommentId, setDestroy }) => {
   const { updateComments } = useComments();
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     updateComments({ topCommentId, commentId, action: "delete" })
     setDestroy(prev => !prev)
+
   }
+
+  console.log("render delete")
+
 
   return (
     <div className={styles.delete}>
@@ -23,11 +28,11 @@ export const Delete = ({ commentId, topCommentId, setDestroy }) => {
 
 
         <div className={styles.footer}>
-          <button typeof='button'
+          <button type='button'
             onClick={() => setDestroy(prev => !prev)}>
             No, cancel
           </button>
-          <button typeof='submit'>
+          <button type='submit'>
             yes, delete
           </button>
         </div>
